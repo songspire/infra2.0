@@ -1,5 +1,4 @@
 tmp/*
-dev/*
 terraform.*
 */terraform.*
 .terraform/*
