@@ -10,4 +10,3 @@
     else
       echo ERROR: "$BRANCH_NAME" unknown environment
     fi 
-    
