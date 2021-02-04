@@ -1,5 +1,14 @@
 steps:
-  - timeout: 600s
+  - id: 'branch name'
+    name: 'alpine'
+    entrypoint: 'sh'  
+    args: 
+    - '-c'
+    - | 
+        echo "***********************"
+        echo "$BRANCH_NAME"
+        echo "***********************"
+
   - id: 'tf-plan'
     name: 'hashicorp/terraform:0.14.5'
     entrypoint: 'sh'
@@ -8,6 +17,7 @@ steps:
       - |
         if [ "$BRANCH_NAME" == "dev" ]; then
           cd dev
+          terraform init
           terraform plan
         else
           echo ERROR: "$BRANCH_NAME" unknown environment
